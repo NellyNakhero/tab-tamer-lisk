@@ -56,6 +56,9 @@ This project uses **Scaffold-Lisk**, combining the **power of Scaffold-ETH tooli
 
 ## 🚀 Workflow Diagram
 
+<img width="8000" height="5200" alt="svgviewer-png-output" src="https://github.com/user-attachments/assets/ad487566-e196-4ed8-8f5d-f41cafbea759" />
+
+
 ```mermaid
 flowchart LR
     subgraph USER[👤 User]
