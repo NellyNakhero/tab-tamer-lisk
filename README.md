@@ -29,6 +29,12 @@ This project uses **Scaffold-Lisk**, combining the **power of Scaffold-ETH tooli
 
 ---
 
+## Live Demo
+<img width="1422" height="745" alt="Screenshot 2025-08-31 at 2 06 34 PM" src="https://github.com/user-attachments/assets/66511f38-5039-4bf2-93d8-0bcce686e65a" />
+
+
+---
+
 ## 🛠️ Tech Stack
 
 | Layer                | Tech / Framework                                   | Notes                                         |
@@ -58,37 +64,6 @@ This project uses **Scaffold-Lisk**, combining the **power of Scaffold-ETH tooli
 
 <img width="8000" height="5200" alt="svgviewer-png-output" src="https://github.com/user-attachments/assets/ad487566-e196-4ed8-8f5d-f41cafbea759" />
 
-
-```mermaid
-flowchart LR
-    subgraph USER[👤 User]
-        A[💼 MetaMask / Wallet]
-    end
-
-    subgraph FRONTEND[💻 Frontend (Next.js)]
-        B[🖥️ React Components]
-        B1[🗂️ TabTamer UI]
-        B2[🔔 Event Listeners]
-        B3[🎨 Customization & Drag-Drop Handlers]
-        B4[⏰ Reminder System & Sound Notifications]
-    end
-
-    subgraph CONTRACTS[📜 Smart Contracts (Scaffold-Lisk)]
-        C1[🔗 TabTamer]
-    end
-
-    subgraph BLOCKCHAIN[⛓️ Lisk Sepolia Testnet]
-        D[📖 Blockchain Ledger]
-    end
-
-    A -->|Connect Wallet| B
-    B1 -->|Call Contract Functions| C1
-    C1 -->|Read/Write Data| D
-    C1 -->|Emit Events| B2
-    B2 -->|Update UI in Real-Time| B1
-    B3 -->|Drag & Drop Reordering, Custom Colors| B1
-    B4 -->|Trigger Reminders & Sounds| B1
-```
 
 ---
 
