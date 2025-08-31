@@ -1,7 +1,25 @@
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
+/* Tailwind directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* Custom animations */
+@keyframes slide-in {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.5s ease-out forwards;
+}
+
+/* Theme & body */
 :root,
 [data-theme] {
   background: oklch(var(--b3));
@@ -11,6 +29,7 @@ body {
   min-height: 100vh;
 }
 
+/* Headings */
 h1,
 h2,
 h3,
@@ -19,6 +38,7 @@ h4 {
   line-height: 1;
 }
 
+/* Buttons */
 .btn {
   @apply shadow-md;
 }

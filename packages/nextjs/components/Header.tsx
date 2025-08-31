@@ -4,13 +4,8 @@ import React, { useCallback, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "./Logo";
-import { Bars3Icon, BugAntIcon, HomeIcon } from "@heroicons/react/24/outline";
-import {
-  DappConsoleButton,
-  FaucetButton,
-  RainbowKitCustomConnectButton,
-  SuperchainFaucetButton,
-} from "~~/components/scaffold-eth";
+import { Bars3Icon, HomeIcon } from "@heroicons/react/24/outline";
+import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 import { cn } from "~~/utils/cn";
 
@@ -26,11 +21,11 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
     icon: <HomeIcon className="h-4 w-4" />,
   },
-  {
-    label: "Debug Contracts",
-    href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
-  },
+  // {
+  //   label: "Debug Contracts",
+  //   href: "/debug",
+  //   icon: <BugAntIcon className="h-4 w-4" />,
+  // },
 ];
 
 export const HeaderMenuLinks = () => {
@@ -111,9 +106,6 @@ export const Header = () => {
       </div>
       <div className="navbar-end flex-grow mr-4">
         <RainbowKitCustomConnectButton />
-        <FaucetButton />
-        <SuperchainFaucetButton />
-        <DappConsoleButton />
       </div>
     </header>
   );

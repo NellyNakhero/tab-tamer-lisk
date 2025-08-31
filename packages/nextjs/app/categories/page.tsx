@@ -1,11 +1,11 @@
 "use client";
 
-import React from "react";
 import CategoriesManager from "~~/components/categories/CategoriesManager";
 
-export default function HomePage() {
+export default function CategoriesPage() {
   return (
-    <main className="min-h-screen bg-gray-950 text-white p-6">
+    <main className="p-6">
+      {/* <h1 className="text-2xl font-bold mb-4">📑 Categories</h1> */}
       <CategoriesManager />
     </main>
   );
