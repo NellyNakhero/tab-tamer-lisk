@@ -4,9 +4,11 @@
 
 # 🗂️ TabTamer
 
-**Deployed on Lisk Sepolia Testnet**: [Vercel App](https://tab-tamer-lisk-nextjs.vercel.app/)
-**TabTamer Smart Contract Address**: `0x0Bff7C1303776FfAf7A3cF4E97fD5f93043D2f46`
-**View on Blockscout**: [Lisk Sepolia Blockscout](https://sepolia-blockscout.lisk.com/address/0x9Df44D4f5BC6F05248Af8E2d6dBbdaA002860dFC?tab=txs)
+**Deployed on Lisk Sepolia Testnet**: [Vercel App](https://tab-tamer-lisk-nextjs.vercel.app/) <br/>
+
+**TabTamer Smart Contract Address**: `0x0Bff7C1303776FfAf7A3cF4E97fD5f93043D2f46` <br/>
+
+**View on Blockscout**: [Lisk Sepolia Blockscout](https://sepolia-blockscout.lisk.com/address/0x9Df44D4f5BC6F05248Af8E2d6dBbdaA002860dFC?tab=txs) <br/>
 
 ---
 
@@ -54,36 +56,7 @@ This project uses **Scaffold-Lisk**, combining the **power of Scaffold-ETH tooli
 
 ## 🚀 Workflow Diagram
 
-```mermaid
-flowchart LR
-    subgraph USER[👤 User]
-        A[💼 MetaMask / Wallet]
-    end
 
-    subgraph FRONTEND[💻 Frontend (Next.js)]
-        B[🖥️ React Components]
-        B1[🗂️ TabTamer UI]
-        B2[🔔 Event Listeners]
-        B3[🎨 Customization & Drag-Drop Handlers]
-        B4[⏰ Reminder System & Sound Notifications]
-    end
-
-    subgraph CONTRACTS[📜 Smart Contracts (Scaffold-Lisk)]
-        C1[🔗 TabTamer]
-    end
-
-    subgraph BLOCKCHAIN[⛓️ Lisk Sepolia Testnet]
-        D[📖 Blockchain Ledger]
-    end
-
-    A -->|Connect Wallet| B
-    B1 -->|Call Contract Functions| C1
-    C1 -->|Read/Write Data| D
-    C1 -->|Emit Events| B2
-    B2 -->|Update UI in Real-Time| B1
-    B3 -->|Drag & Drop Reordering, Custom Colors| B1
-    B4 -->|Trigger Reminders & Sounds| B1
-```
 
 ---
 
