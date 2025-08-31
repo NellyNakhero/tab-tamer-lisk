@@ -1,115 +1,148 @@
-<div align="left">
-  <a href="https://lisk.com"><img alt="Lisk" src="./packages/nextjs/public/readme-banner.png" width="100%"></a>
-</div>
 
-<br />
 
-Scaffold-Lisk is a fork of Scaffold-OP with minimal differences, providing additional dApp examples, native support for Superchain testnets, and more low-level instructions. We highly recommend the Scaffold-ETH2 docs as the primary guideline.
+---
 
-🧪 An open-source, up-to-date toolkit for building decentralized applications (dapps) on the Ethereum blockchain. It's designed to make it easier for developers to create and deploy smart contracts and build user interfaces that interact with those contracts.
+# 🗂️ TabTamer
 
-⚙️ Built using NextJS, RainbowKit, Hardhat, Wagmi, Viem, and Typescript.
+**Deployed on Lisk Sepolia Testnet**: [Vercel App](https://tab-tamer-lisk-nextjs.vercel.app/)
+**TabTamer Smart Contract Address**: `0x0Bff7C1303776FfAf7A3cF4E97fD5f93043D2f46`
+**View on Blockscout**: [Lisk Sepolia Blockscout](https://sepolia-blockscout.lisk.com/address/0x9Df44D4f5BC6F05248Af8E2d6dBbdaA002860dFC?tab=txs)
 
-- ✅ **Contract Hot Reload**: Your frontend auto-adapts to your smart contract as you edit it.
-- 🪝 **[Custom hooks](https://docs.scaffoldeth.io/hooks/)**: Collection of React hooks wrapper around [wagmi](https://wagmi.sh/) to simplify interactions with smart contracts with typescript autocompletion.
-- 🧱 [**Components**](https://docs.scaffoldeth.io/components/): Collection of common web3 components to quickly build your frontend.
-- 🔥 **Burner Wallet & Local Faucet**: Quickly test your application with a burner wallet and local faucet.
-- 🔐 **Integration with Wallet Providers**: Connect to different wallet providers and interact with the Ethereum network.
+---
 
-<div align="center" style="margin-top: 24px;">
-  <img alt="App demo" src="./packages/nextjs/public/scaffold-lisk-landing.png" width="100%">
-</div>
+## 📝 Project Overview
 
-## Requirements
+TabTamer is a **web3 productivity app** designed to help users **organize, track, and manage their web links** while interacting seamlessly with blockchain.
 
-Before you begin, you need to install the following tools:
+**Key Features:**
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
+* Create categories and add links.
+* Mark links as read.
+* **Set reminders with sound notifications**.
+* Customize link colors.
+* **Reorder links and categories via drag-and-drop**.
+* All interactions tracked on blockchain for verification.
 
-## Quickstart
+This project uses **Scaffold-Lisk**, combining the **power of Scaffold-ETH tooling** with **Lisk Sepolia Testnet** for smart contract deployment.
 
-To get started with Scaffold-Lisk, follow the steps below:
+---
 
-1. Clone this repo & install dependencies
+## 🛠️ Tech Stack
 
+| Layer                | Tech / Framework                                   | Notes                                         |
+| -------------------- | -------------------------------------------------- | --------------------------------------------- |
+| **Frontend**         | Next.js + React                                    | User interface, connects to wallet & contract |
+| **State Management** | React hooks / Context                              | Tracks app state and blockchain events        |
+| **Smart Contracts**  | Solidity via Scaffold-Lisk                         | TabTamer contract for link management         |
+| **Blockchain**       | Lisk Sepolia Testnet                               | Testnet network for development               |
+| **Wallet**           | MetaMask                                           | Ethereum-compatible wallet integration        |
+| **Deployment**       | Vercel                                             | Frontend hosting                              |
+| **APIs / RPC**       | `https://rpc.sepolia-api.lisk.com`                 | Connect frontend to Lisk Sepolia network      |
+| **Block Explorer**   | [Blockscout](https://sepolia-blockscout.lisk.com/) | Monitor transactions and contracts            |
+
+---
+
+## 🔗 Smart Contract Details
+
+| Contract | Address                                      | Functionality                                                           |
+| -------- | -------------------------------------------- | ----------------------------------------------------------------------- |
+| TabTamer | `0x0Bff7C1303776FfAf7A3cF4E97fD5f93043D2f46` | Category & link management, reminders, read tracking, blockchain events |
+
+> This contract is deployed on **Lisk Sepolia Testnet**. The address above can be verified on [Blockscout](https://sepolia-blockscout.lisk.com/).
+
+---
+
+## 🚀 Workflow Diagram
+
+```mermaid
+flowchart LR
+    subgraph USER[👤 User]
+        A[💼 MetaMask / Wallet]
+    end
+
+    subgraph FRONTEND[💻 Frontend (Next.js)]
+        B[🖥️ React Components]
+        B1[🗂️ TabTamer UI]
+        B2[🔔 Event Listeners]
+        B3[🎨 Customization & Drag-Drop Handlers]
+        B4[⏰ Reminder System & Sound Notifications]
+    end
+
+    subgraph CONTRACTS[📜 Smart Contracts (Scaffold-Lisk)]
+        C1[🔗 TabTamer]
+    end
+
+    subgraph BLOCKCHAIN[⛓️ Lisk Sepolia Testnet]
+        D[📖 Blockchain Ledger]
+    end
+
+    A -->|Connect Wallet| B
+    B1 -->|Call Contract Functions| C1
+    C1 -->|Read/Write Data| D
+    C1 -->|Emit Events| B2
+    B2 -->|Update UI in Real-Time| B1
+    B3 -->|Drag & Drop Reordering, Custom Colors| B1
+    B4 -->|Trigger Reminders & Sounds| B1
 ```
-git clone https://github.com/LiskHQ/scaffold-lisk.git
-cd scaffold-lisk
-yarn install
-```
 
-2. Run a local network in the first terminal:
+---
 
-```
-yarn chain
-```
+### 🔹 Workflow Summary
 
-This command starts a local Ethereum network using Hardhat. The network runs on your local machine and can be used for testing and development. You can customize the network configuration in `hardhat.config.ts`.
+1. **👤 User** connects wallet (MetaMask) to the **frontend**.
+2. **React Components** interact with **TabTamer smart contract** via **Scaffold-Lisk**.
+3. Smart contract **stores data on Lisk Sepolia** and **emits events**.
+4. Frontend **listens to events** and dynamically **updates the UI**.
+5. Users can **track links, create categories, reorder them, customize colors, and receive reminder notifications** seamlessly.
 
-3. On a second terminal, deploy the test contract:
+---
 
-```
-yarn deploy
-```
+## 🏗️ Deployment & Environment
 
-This command deploys a test smart contract to the local network. The contract is located in `packages/hardhat/contracts` and can be modified to suit your needs. The `yarn deploy` command uses the deploy script located in `packages/hardhat/deploy` to deploy the contract to the network. You can also customize the deploy script.
+### Local Development
 
-4. On the same terminal, start your NextJS app:
+* Use **Hardhat** via Scaffold-Lisk to deploy the TabTamer contract locally.
+* `.env` and `.env.local` files contain:
 
-```
-yarn start
-```
+  * `NEXT_PUBLIC_CHAIN_ID=4202` (Sepolia)
+  * `NEXT_PUBLIC_TABTAMER_ADDRESS`
+  * `NEXT_PUBLIC_RPC_URL=https://rpc.sepolia-api.lisk.com`
+  * Wallet private key for deployment
 
-Visit your app on: `http://localhost:3000`. You can interact with your smart contract using the `Debug Contracts` page. You can tweak the app config in `packages/nextjs/scaffold.config.ts`.
+### Vercel Deployment
 
-Run smart contract test with `yarn hardhat:test`
+* Add all `NEXT_PUBLIC_*` variables in **Vercel Environment Variables**:
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend in `packages/nextjs/pages`
-- Edit your deployment scripts in `packages/hardhat/deploy`
+  * `NEXT_PUBLIC_CHAIN_ID=4202`
+  * `NEXT_PUBLIC_TABTAMER_ADDRESS=0x0Bff7C1303776FfAf7A3cF4E97fD5f93043D2f46`
+  * `NEXT_PUBLIC_RPC_URL=https://rpc.sepolia-api.lisk.com`
+  * `NEXT_PUBLIC_DEV_MODE=false`
 
-## Deploy Contracts to Superchain Testnet(s)
+* Frontend is automatically connected to Lisk Sepolia.
 
-To deploy contracts to a remote testnet (e.g. Optimism Sepolia), follow the steps below:
+---
 
-1. Get Superchain Sepolia ETH from the [Superchain Faucet](https://app.optimism.io/faucet)
+## 📚 References & Integrations
 
-2. Inside the `packages/hardhat` directory, copy `.env.example` to `.env`.
+* **Scaffold-Lisk**: Simplifies smart contract deployment & frontend integration
+* **MetaMask**: Wallet connection
+* **RPC Provider**: JSON-RPC connection to Lisk Sepolia
+* **Blockscout**: View transactions & contract state
+* **Sound Notifications**: Alerts users for reminders
+* **Drag & Drop UI**: Rearrange links and categories visually
+* **Custom Colors**: Personalize links and categories
 
-   ```bash
-   cd packages/hardhat && cp .env.example .env
-   ```
+---
 
-3. Edit your `.env` to specify the environment variables. Only specifying the `DEPLOYER_PRIVATE_KEY` is necessary here. The contract will be deployed from the address associated with this private key, so make sure it has enough Sepolia ETH.
+This README now covers:
 
-   ```bash
-   DEPLOYER_PRIVATE_KEY = "your_private_key_with_sepolia_ETH";
-   ```
+* Project description & features ✅
+* **All TabTamer functionalities** ✅
+* Full tech stack ✅
+* TabTamer smart contract address & blockchain link ✅
+* Frontend deployment link ✅
+* Environment variables for local & Vercel ✅
+* Visual workflow diagram with interactions ✅
 
-4. Inside `scaffold-lisk`, run
+---
 
-   ```bash
-   yarn deploy --network-options
-   ```
-
-   Use spacebar to make your selection(s). This command deploys all smart contracts in `packages/hardhat/contracts` to the selected network(s). Alternatively, you can try
-
-   ```bash
-   yarn deploy --network networkName
-   ```
-
-   Network names are found in `hardhat.config.js`. Please ensure you have enough Sepolia ETH on all these Superchains. If the deployments are successful, you will see the deployment tx hash on the terminal.
-
-## Adding Foundry
-
-Hardhat's NodeJS stack and cleaner deployment management makes it a better default for Scaffold-Lisk.
-
-To add Foundry to Scaffold-Lisk, follow this simple [tutorial](https://hardhat.org/hardhat-runner/docs/advanced/hardhat-and-foundry) by Hardhat. We recommend users who want more robust and faster testing to add Foundry.
-
-## Documentation
-
-We highly recommend visiting the original [docs](https://docs.scaffoldeth.io) to learn how to start building with Scaffold-ETH 2.
-
-To know more about its features, check out their [website](https://scaffoldeth.io).
